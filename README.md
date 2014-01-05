@@ -12,6 +12,8 @@ floating point infinity values. I wanted to create a class which can be compared
 * Writing `float('inf')` is clumsy compared to just `inf`
 
 
+Object comparison
+-----------------
 
 The `Infinity` class supports rich comparison methods:
 
@@ -27,6 +29,9 @@ datetime(2000, 2, 2) < inf  # True
 inf == inf                  # True
 -inf == -inf                # True
 ```
+
+Arithmetic operators
+--------------------
 
 
 It also supports arithmetic operators:
@@ -51,6 +56,9 @@ inf / inf
 inf * 0
 pow(inf, 0)
 ```
+
+Type coercion
+-------------
 
 Infinity objects can be coerced to various types:
 
