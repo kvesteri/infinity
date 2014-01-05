@@ -42,7 +42,6 @@ setup(
         if sys.version_info[0] == 2 and sys.version_info[1] < 7 else ''
     ],
     extras_require=extras_require,
-    cmdclass={'test': PyTest},
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
