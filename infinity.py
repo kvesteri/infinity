@@ -80,5 +80,11 @@ class Infinity(object):
     def timetuple(self):
         return tuple()
 
+    def __abs__(self):
+        return self.__class__()
+
+    def __pos__(self):
+        return self
+
 
 inf = Infinity()
