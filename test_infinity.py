@@ -6,7 +6,7 @@ from infinity import inf, Infinity
 
 class TestNegativeInfinity(object):
     def test_boolean_coercion(self):
-        assert bool(-inf) is False
+        assert bool(-inf) is True
 
     def test_unicode_coercion(self):
         assert six.text_type(-inf) == '-inf'

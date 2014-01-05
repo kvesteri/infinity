@@ -11,33 +11,6 @@ class Infinity(object):
     An object that is greater than any other object (except itself).
 
     Inspired by https://pypi.python.org/pypi/Extremes
-
-    Infinity can be compared to any object:
-
-    ::
-
-        >>> from infinity import inf
-        >>> import sys
-
-        >>> inf > -sys.maxint
-        True
-        >>> inf > None
-        True
-        >>> inf > ''
-        True
-        >>> inf > datetime(2000, 20, 2)
-
-
-    Supports arithmetic operators:
-
-    ::
-
-        >>> inf + 2
-        inf
-        >>> 4 - inf
-        -inf
-        >>> -inf - inf
-        -inf
     """
     def __init__(self, positive=True):
         self.positive = positive
@@ -62,10 +35,10 @@ class Infinity(object):
         return not (self == other)
 
     def __bool__(self):
-        return self.positive
+        return True
 
     def __nonzero__(self):
-        return self.positive
+        return True
 
     def __str__(self):
         return '%sinf' % ('' if self.positive else '-')
