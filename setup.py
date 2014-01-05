@@ -43,7 +43,7 @@ for name, requirements in extras_require.items():
 
 setup(
     name='infinity',
-    version='0.1',
+    version='1.0',
     url='https://github.com/kvesteri/infinity',
     license='BSD',
     author='Konsta Vesterinen',

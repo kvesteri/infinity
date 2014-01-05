@@ -5,6 +5,9 @@ except ImportError:
     from total_ordering import total_ordering
 
 
+__version__ = '1.0'
+
+
 @total_ordering
 class Infinity(object):
     def __init__(self, positive=True):
