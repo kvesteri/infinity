@@ -34,12 +34,15 @@ class Infinity(object):
         return Infinity(not self.positive)
 
     def __gt__(self, other):
-        if isinstance(other, self.__class__) and other.positive == self.positive:
+        if self == other:
             return False
         return self.positive
 
     def __eq__(self, other):
-        if isinstance(other, self.__class__) and other.positive == self.positive:
+        if (
+            isinstance(other, self.__class__) and
+            other.positive == self.positive
+        ):
             return True
         return False
 
@@ -55,6 +58,16 @@ class Infinity(object):
     def __str__(self):
         return '%sinf' % ('' if self.positive else '-')
 
+    def __float__(self):
+        return float(str(self))
+
+    def __add__(self, other):
+        if other == self:
+            return self
+        raise NotImplemented
+
+    def timetuple(self):
+        return tuple()
 
 
 inf = Infinity()
