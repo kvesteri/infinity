@@ -1,0 +1,1 @@
+include README.md LICENSE CHANGES.rst test_inflection.py
