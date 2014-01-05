@@ -62,9 +62,20 @@ class Infinity(object):
         return float(str(self))
 
     def __add__(self, other):
-        if other == self:
-            return self
-        raise NotImplemented
+        if (
+            isinstance(other, self.__class__) and
+            other.positive != self.positive
+        ):
+            return NotImplemented
+        return self
+
+    def __sub__(self, other):
+        if (
+            isinstance(other, self.__class__) and
+            other.positive == self.positive
+        ):
+            return NotImplemented
+        return self
 
     def timetuple(self):
         return tuple()

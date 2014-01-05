@@ -51,6 +51,13 @@ class TestNegativeInfinity(object):
         assert value > -inf
         assert -inf < value
 
+    def test_sub_operator(self):
+        assert -inf - inf == -inf
+
+    def test_add_operator(self):
+        with pytest.raises(TypeError):
+            assert -inf + inf
+
 
 class TestInfinity(object):
     def test_boolean_coercion(self):
@@ -75,3 +82,12 @@ class TestInfinity(object):
     def test_greater_than_every_other_value(self, value):
         assert value < inf
         assert inf > value
+
+    def test_add_operator(self):
+        assert inf + inf == inf
+        assert inf + 3 == inf
+        assert inf + datetime(2000, 2, 2) == inf
+
+    def test_sub_operator(self):
+        with pytest.raises(TypeError):
+            inf - inf
