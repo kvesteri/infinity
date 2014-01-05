@@ -1,16 +1,6 @@
+from datetime import datetime
 import pytest
 from infinity import inf, Infinity
-
-
-@pytest.mark.parametrize('value', [
-    None,
-    '',
-    12,
-    -inf,
-])
-def test_infinity_is_greater_than_every_other_value(value):
-    assert value < inf
-    assert inf > value
 
 
 def test_infinity_is_not_greater_than_itself():
@@ -23,16 +13,6 @@ def test_other_comparison_methods_for_infinity():
     assert not (inf != inf)
     assert inf == Infinity()
     assert not (inf != Infinity())
-
-
-@pytest.mark.parametrize('value', [
-    None,
-    '',
-    12,
-    inf,
-])
-def test_negative_infinity_is_smaller_than_every_other_value(value):
-    assert value > -inf
 
 
 def test_min_is_not_greater_than_itself():
@@ -57,6 +37,20 @@ class TestNegativeInfinity(object):
     def test_unicode_coercion(self):
         assert unicode(-inf) == '-inf'
 
+    def test_float_coercion(self):
+        assert float(-inf) == float('-inf')
+
+    @pytest.mark.parametrize('value', [
+        None,
+        '',
+        12,
+        inf,
+        datetime(2000, 2, 2)
+    ])
+    def test_smaller_than_every_other_value(self, value):
+        assert value > -inf
+        assert -inf < value
+
 
 class TestInfinity(object):
     def test_boolean_coercion(self):
@@ -68,4 +62,16 @@ class TestInfinity(object):
     def test_unicode_coercion(self):
         assert unicode(inf) == 'inf'
 
+    def test_float_coercion(self):
+        assert float(inf) == float('inf')
 
+    @pytest.mark.parametrize('value', [
+        None,
+        '',
+        12,
+        -inf,
+        datetime(2000, 2, 2)
+    ])
+    def test_greater_than_every_other_value(self, value):
+        assert value < inf
+        assert inf > value
