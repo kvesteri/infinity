@@ -7,11 +7,6 @@ except ImportError:
 
 @total_ordering
 class Infinity(object):
-    """
-    An object that is greater than any other object (except itself).
-
-    Inspired by https://pypi.python.org/pypi/Extremes
-    """
     def __init__(self, positive=True):
         self.positive = positive
 

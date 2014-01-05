@@ -12,6 +12,24 @@ floating point infinity values. I wanted to create a class which can be compared
 * Writing `float('inf')` is clumsy compared to just `inf`
 
 
+Installation
+------------
+
+
+Simply grab the package from pypi:
+
+
+    pip install infinity
+
+
+Supported python versions:
+
+* Python 2.6
+* Python 2.7
+* Python 3.3
+* PyPy
+
+
 Object comparison
 -----------------
 
