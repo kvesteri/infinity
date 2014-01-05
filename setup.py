@@ -53,6 +53,7 @@ setup(
     ),
     long_description=__doc__,
     packages=find_packages('.'),
+    py_modules=['infinity'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',
