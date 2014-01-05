@@ -8,9 +8,6 @@ class TestNegativeInfinity(object):
     def test_boolean_coercion(self):
         assert bool(-inf) is False
 
-    def test_string_coercion(self):
-        assert six.binary_type(-inf) == '-inf'
-
     def test_unicode_coercion(self):
         assert six.text_type(-inf) == '-inf'
 
@@ -75,9 +72,6 @@ class TestNegativeInfinity(object):
 class TestInfinity(object):
     def test_boolean_coercion(self):
         assert bool(inf) is True
-
-    def test_string_coercion(self):
-        assert six.binary_type(inf) == 'inf'
 
     def test_unicode_coercion(self):
         assert six.text_type(inf) == 'inf'

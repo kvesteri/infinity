@@ -106,6 +106,8 @@ class Infinity(object):
             other > 0 and self.positive or other < 0 and not self.positive
         )
 
+    __truediv__ = __div__
+
     def __mul__(self, other):
         if other is 0:
             return NotImplemented
