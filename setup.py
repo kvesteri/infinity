@@ -4,23 +4,8 @@ infinity
 
 All-in-one infinity value for Python. Can be compared to any object.
 """
-from setuptools import setup, Command, find_packages
-import subprocess
+from setuptools import setup, find_packages
 import sys
-
-
-class PyTest(Command):
-    user_options = []
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        errno = subprocess.call(['py.test'])
-        sys.exit(errno)
 
 
 PY3 = sys.version_info[0] == 3
@@ -33,12 +18,6 @@ extras_require = {
         'six>=1.4.1'
     ],
 }
-
-
-# Add all optional dependencies to testing requirements.
-for name, requirements in extras_require.items():
-    if name != 'test':
-        extras_require['test'] += requirements
 
 
 setup(
