@@ -1,5 +1,6 @@
 from datetime import datetime
 import pytest
+import six
 from infinity import inf, Infinity
 
 
@@ -15,7 +16,7 @@ def test_other_comparison_methods_for_infinity():
     assert not (inf != Infinity())
 
 
-def test_min_is_not_greater_than_itself():
+def test_negative_infinity_is_not_greater_than_itself():
     assert not (-inf < -inf)
 
 
@@ -32,10 +33,10 @@ class TestNegativeInfinity(object):
         assert bool(-inf) is False
 
     def test_string_coercion(self):
-        assert str(-inf) == '-inf'
+        assert six.binary_type(-inf) == '-inf'
 
     def test_unicode_coercion(self):
-        assert unicode(-inf) == '-inf'
+        assert six.text_type(-inf) == '-inf'
 
     def test_float_coercion(self):
         assert float(-inf) == float('-inf')
@@ -64,16 +65,36 @@ class TestNegativeInfinity(object):
     def test_pos(self):
         assert +-inf == -inf
 
+    def test_div(self):
+        with pytest.raises(TypeError):
+            -inf / -inf
+        assert (-inf / 2) == -inf
+        assert (-inf / -1) == inf
+
+    def test_mul(self):
+        with pytest.raises(TypeError):
+            -inf * 0
+        -inf * 3 == -inf
+        -inf * inf == -inf
+
+    def test_pow(self):
+        with pytest.raises(TypeError):
+            pow(-inf, 0)
+        pow(-inf, 3) == -inf
+        pow(-inf, inf) == inf
+        pow(-inf, -inf) == -0.0
+        pow(-inf, -3) == -0.0
+
 
 class TestInfinity(object):
     def test_boolean_coercion(self):
         assert bool(inf) is True
 
     def test_string_coercion(self):
-        assert str(inf) == 'inf'
+        assert six.binary_type(inf) == 'inf'
 
     def test_unicode_coercion(self):
-        assert unicode(inf) == 'inf'
+        assert six.text_type(inf) == 'inf'
 
     def test_float_coercion(self):
         assert float(inf) == float('inf')
@@ -103,3 +124,17 @@ class TestInfinity(object):
 
     def test_pos(self):
         assert +inf == inf
+
+    def test_div(self):
+        with pytest.raises(TypeError):
+            assert inf / inf
+        assert inf / 2 == inf
+        assert inf / -1 == -inf
+
+    def test_pow(self):
+        with pytest.raises(TypeError):
+            pow(inf, 0)
+        pow(inf, 3) == -inf
+        pow(inf, inf) == inf
+        pow(inf, -inf) == 0.0
+        pow(inf, -3) == 0.0

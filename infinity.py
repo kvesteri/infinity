@@ -12,9 +12,9 @@ class Infinity(object):
 
     Inspired by https://pypi.python.org/pypi/Extremes
 
-    Examples::
-
     Infinity can be compared to any object:
+
+    ::
 
         >>> from infinity import inf
         >>> import sys
@@ -26,6 +26,18 @@ class Infinity(object):
         >>> inf > ''
         True
         >>> inf > datetime(2000, 20, 2)
+
+
+    Supports arithmetic operators:
+
+    ::
+
+        >>> inf + 2
+        inf
+        >>> 4 - inf
+        -inf
+        >>> -inf - inf
+        -inf
     """
     def __init__(self, positive=True):
         self.positive = positive
@@ -85,6 +97,30 @@ class Infinity(object):
 
     def __pos__(self):
         return self
+
+    def __div__(self, other):
+        if isinstance(other, self.__class__):
+            return NotImplemented
+
+        return Infinity(
+            other > 0 and self.positive or other < 0 and not self.positive
+        )
+
+    def __mul__(self, other):
+        if other is 0:
+            return NotImplemented
+        return Infinity(
+            other > 0 and self.positive or other < 0 and not self.positive
+        )
+
+    def __pow__(self, other):
+        if other is 0:
+            return NotImplemented
+        elif other == -self:
+            return -0.0 if not self.positive else 0.0
+        else:
+            return Infinity()
+
 
 
 inf = Infinity()
