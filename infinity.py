@@ -94,6 +94,13 @@ class Infinity(object):
         else:
             return Infinity()
 
+    def __rpow__(self, other):
+        if other in (1, -1):
+            return NotImplemented
+        elif other == -self:
+            return -0.0 if not self.positive else 0.0
+        else:
+            return Infinity()
 
 
 inf = Infinity()

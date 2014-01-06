@@ -10,6 +10,8 @@ Why?
 * Python has `float('inf')` and `float('-inf')`. However these simply represent
 floating point infinity values. I wanted to create a class which can be compared to any comparable object.
 * Writing `float('inf')` is clumsy compared to just `inf`
+* `pow(1, float('inf'))` returns 1 whereas it should be undefined (see why: http://math.stackexchange.com/questions/319764/1-to-the-power-of-infinity-why-is-it-indeterminate). In infinity this operation returns TypeError.
+* http://stackoverflow.com/questions/382603/when-would-you-use-infinity
 
 
 Installation
@@ -61,8 +63,10 @@ inf + inf                   # inf
 inf + 3                     # inf
 inf + datetime(2000, 2, 2)  # inf
 
-inf / inf                   # 0.0
-inf / -inf                  # -0.0
+5 / inf                     # 0.0
+3 / -inf                    # -0.0
+
+pow(inf, 0.5)               #
 ```
 
 The following operations raise `TypeError` exceptions:
@@ -73,6 +77,7 @@ inf - inf
 inf / inf
 inf * 0
 pow(inf, 0)
+pow(1, inf)
 ```
 
 Type coercion
