@@ -73,6 +73,8 @@ class TestNegativeInfinity(object):
             pow(1, inf)
         with pytest.raises(TypeError):
             pow(-1, inf)
+        pow(2, inf) == inf
+        pow(-3, inf) == inf
 
 
 class TestInfinity(object):
@@ -140,3 +142,5 @@ class TestInfinity(object):
             pow(1, inf)
         with pytest.raises(TypeError):
             pow(-1, inf)
+        pow(2, inf) == inf
+        pow(-3, inf) == inf
