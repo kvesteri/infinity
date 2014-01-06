@@ -68,6 +68,12 @@ class TestNegativeInfinity(object):
         pow(-inf, -inf) == -0.0
         pow(-inf, -3) == -0.0
 
+    def test_rpow(self):
+        with pytest.raises(TypeError):
+            pow(1, inf)
+        with pytest.raises(TypeError):
+            pow(-1, inf)
+
 
 class TestInfinity(object):
     def test_boolean_coercion(self):
