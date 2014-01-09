@@ -66,7 +66,7 @@ inf + datetime(2000, 2, 2)  # inf
 5 / inf                     # 0.0
 3 / -inf                    # -0.0
 
-pow(inf, 0.5)               #
+pow(inf, 0.5)               # inf
 ```
 
 The following operations raise `TypeError` exceptions:
