@@ -110,3 +110,7 @@ class Infinity(object):
 
 
 inf = Infinity()
+
+
+def is_infinite(value):
+    return value == inf or value == -inf
