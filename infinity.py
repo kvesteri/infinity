@@ -45,19 +45,19 @@ class Infinity(object):
         return float(str(self))
 
     def __add__(self, other):
-        if (
-            isinstance(other, self.__class__) and
-            other.positive != self.positive
-        ):
+        if is_infinite(other) and other != self:
             return NotImplemented
         return self
 
+    def __radd__(self, other):
+        return self
+
     def __sub__(self, other):
-        if (
-            isinstance(other, self.__class__) and
-            other.positive == self.positive
-        ):
+        if is_infinite(other) and other == self:
             return NotImplemented
+        return self
+
+    def __rsub__(self, other):
         return self
 
     def timetuple(self):
@@ -70,14 +70,18 @@ class Infinity(object):
         return self
 
     def __div__(self, other):
-        if isinstance(other, self.__class__):
+        if is_infinite(other):
             return NotImplemented
 
         return Infinity(
             other > 0 and self.positive or other < 0 and not self.positive
         )
 
+    def __rdiv__(self, other):
+        return 0
+
     __truediv__ = __div__
+    __rtruediv__ = __div__
 
     def __mul__(self, other):
         if other is 0:
@@ -85,6 +89,8 @@ class Infinity(object):
         return Infinity(
             other > 0 and self.positive or other < 0 and not self.positive
         )
+
+    __rmul__ = __mul__
 
     def __pow__(self, other):
         if other is 0:
