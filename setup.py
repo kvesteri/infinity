@@ -22,7 +22,7 @@ extras_require = {
 
 setup(
     name='infinity',
-    version='1.1',
+    version='1.2',
     url='https://github.com/kvesteri/infinity',
     license='BSD',
     author='Konsta Vesterinen',
