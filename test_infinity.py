@@ -56,6 +56,9 @@ class TestNegativeInfinity(InfinityTestCase):
     def test_unicode_coercion(self):
         assert six.text_type(-inf) == '-inf'
 
+    def test_repr(self):
+        assert repr(-inf) == '-inf'
+
     def test_float_coercion(self):
         assert float(-inf) == float('-inf')
 
@@ -180,3 +183,5 @@ class TestInfinity(InfinityTestCase):
         pow(inf, -inf) == 0.0
         pow(inf, -3) == 0.0
 
+    def test_repr(self):
+        assert repr(inf) == 'inf'

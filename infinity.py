@@ -80,6 +80,9 @@ class Infinity(object):
     def __rdiv__(self, other):
         return 0
 
+    def __repr__(self):
+        return str(self)
+
     __truediv__ = __div__
     __rtruediv__ = __rdiv__
     __floordiv__ = __div__
