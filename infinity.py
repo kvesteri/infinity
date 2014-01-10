@@ -81,7 +81,7 @@ class Infinity(object):
         return 0
 
     __truediv__ = __div__
-    __rtruediv__ = __div__
+    __rtruediv__ = __rdiv__
 
     def __mul__(self, other):
         if other is 0:
