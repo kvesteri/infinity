@@ -9,6 +9,7 @@ Here you can see the full list of changes between each infinity release.
 
 - Added support for __rdiv__, __radd__, __rsub__ and __rmul__ operators
 - Added is_infinite utility function
+- Added __repr__
 
 
 0.1.1 (2014-01-06)
