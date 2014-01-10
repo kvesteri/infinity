@@ -4,6 +4,12 @@ Changelog
 Here you can see the full list of changes between each infinity release.
 
 
+0.1.3 (2014-01-10)
+------------------
+
+- Made __eq__ return True for inf == float('inf') and -inf == float('-inf')
+
+
 0.1.2 (2014-01-09)
 ------------------
 

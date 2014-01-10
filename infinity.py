@@ -22,12 +22,15 @@ class Infinity(object):
         return self.positive
 
     def __eq__(self, other):
-        if (
+        return (
             isinstance(other, self.__class__) and
             other.positive == self.positive
-        ):
-            return True
-        return False
+        ) or (
+            self.positive and other == float('inf')
+        ) or (
+            not self.positive and other == float('-inf')
+        )
+
 
     def __ne__(self, other):
         return not (self == other)

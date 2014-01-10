@@ -79,6 +79,7 @@ class TestNegativeInfinity(InfinityTestCase):
     def test_comparison(self):
         assert -inf <= -inf
         assert -inf == -inf
+        assert -inf == float(-inf)
         assert not (-inf != -inf)
         assert -inf == -Infinity()
         assert not (-inf != -Infinity())
@@ -141,6 +142,7 @@ class TestInfinity(InfinityTestCase):
     def test_comparison(self):
         assert inf <= inf
         assert inf == inf
+        assert inf == float('inf')
         assert not (inf != inf)
         assert inf == Infinity()
         assert not (inf != Infinity())
