@@ -5,7 +5,7 @@ except ImportError:
     from total_ordering import total_ordering
 
 
-__version__ = '1.2'
+__version__ = '1.3'
 
 
 @total_ordering
