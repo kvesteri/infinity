@@ -13,7 +13,7 @@ class InfinityTestCase(object):
 
     @pytest.mark.parametrize(('arg', 'op'),
         (
-            (inf, operator.div),
+            (inf, operator.truediv),
             (0, operator.pow),
             (0, operator.mul)
         )
