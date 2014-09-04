@@ -9,11 +9,11 @@ All-in-one infinity value for Python. Can be compared to any object.
 Why?
 ----
 
-* Python has `float('inf')` and `float('-inf')`. However these simply represent floating point infinity values. I wanted to create a class which can be compared to any comparable object.
+* Python has ``float('inf')`` and ``float('-inf')``. However these simply represent floating point infinity values. I wanted to create a class which can be compared to any comparable object.
 
-* Writing `float('inf')` is clumsy compared to just `inf`
+* Writing ``float('inf')`` is clumsy compared to just ``inf``
 
-* `pow(1, float('inf'))` returns 1 whereas it should be undefined (see why: http://math.stackexchange.com/questions/319764/1-to-the-power-of-infinity-why-is-it-indeterminate). In infinity this operation returns TypeError.
+* ``pow(1, float('inf'))`` returns 1 whereas it should be undefined (see why: http://math.stackexchange.com/questions/319764/1-to-the-power-of-infinity-why-is-it-indeterminate). In infinity this operation returns ``TypeError``.
 
 * http://stackoverflow.com/questions/382603/when-would-you-use-infinity
 
@@ -39,7 +39,7 @@ Supported python versions:
 Object comparison
 -----------------
 
-The `Infinity` class supports rich comparison methods:
+The ``Infinity`` class supports rich comparison methods:
 
 
 .. code-block:: python
@@ -73,7 +73,7 @@ It also supports arithmetic operators:
 
     pow(inf, 0.5)               # inf
 
-The following operations raise `TypeError` exceptions:
+The following operations raise ``TypeError`` exceptions:
 
 .. code-block:: python
 
