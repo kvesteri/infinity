@@ -9,11 +9,14 @@ All-in-one infinity value for Python. Can be compared to any object.
 Why?
 ----
 
-* Python has ``float('inf')`` and ``float('-inf')``. However these simply represent floating point infinity values. I wanted to create a class which can be compared to any comparable object.
+* Python has ``float('inf')`` and ``float('-inf')``. However these simply
+  represent floating point infinity values. I wanted to create a class which can
+  be compared to any comparable object.
 
 * Writing ``float('inf')`` is clumsy compared to just ``inf``
 
-* ``pow(1, float('inf'))`` returns 1 whereas `it should be undefined`_. In infinity this operation returns ``TypeError``.
+* ``pow(1, float('inf'))`` returns 1 whereas `it should be undefined`_. In
+  infinity this operation returns ``TypeError``.
 
 * `When would you use Infinity`_?
 
