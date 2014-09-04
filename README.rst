@@ -53,14 +53,19 @@ The ``Infinity`` class supports rich comparison methods:
 
 .. code-block:: python
 
-    from infinity import inf
-    import sys
+    >>> from datetime import datetime
+    >>> from infinity import inf
 
-    3 < inf                     # True
-    datetime(2000, 2, 2) < inf  # True
-    -inf < inf                  # True
-    inf == inf                  # True
-    -inf == -inf                # True
+    >>> 3 < inf
+    True
+    >>> datetime(2000, 2, 2) < inf
+    True
+    >>> -inf < inf
+    True
+    >> inf == inf
+    True
+    >>> -inf == -inf
+    True
 
 
 Arithmetic operators
@@ -71,27 +76,57 @@ It also supports arithmetic operators:
 
 .. code-block:: python
 
-    inf + inf                   # inf
-    -inf - inf                  # -inf
+    >>> inf + inf
+    inf
+    >>> -inf - inf
+    -inf
 
-    inf + 3                     # inf
-    inf + datetime(2000, 2, 2)  # inf
+    >>> inf + 3
+    inf
+    >>> inf + datetime(2000, 2, 2)
+    inf
 
-    5 / inf                     # 0.0
-    3 / -inf                    # -0.0
+    >>> 5 / inf
+    0.0
+    >>> 3 / -inf
+    -0.0
 
-    pow(inf, 0.5)               # inf
+    >>> pow(inf, 0.5)
+    inf
 
 The following operations raise ``TypeError`` exceptions:
 
 .. code-block:: python
 
-    inf - inf
-    -inf + inf
-    inf / inf
-    inf * 0
-    pow(inf, 0)
-    pow(1, inf)
+    >>> inf - inf
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for -: 'Infinity' and 'Infinity'
+
+    >>> -inf + inf
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for +: 'Infinity' and 'Infinity'
+
+    >>> inf / inf
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for /: 'Infinity' and 'Infinity'
+
+    >>> inf * 0
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for *: 'Infinity' and 'int'
+
+    >>> pow(inf, 0)
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for ** or pow(): 'Infinity' and 'int'
+
+    >>> pow(1, inf)
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for ** or pow(): 'int' and 'Infinity'
 
 
 Type coercion
@@ -102,12 +137,18 @@ Infinity objects can be coerced to various types:
 
 .. code-block:: python
 
-    float(inf)          # float('inf')
-    float(-inf)         # float('-inf')
-    str(inf)            # 'inf'
-    str(-inf)           # '-inf'
-    bool(inf)           # True
-    bool(-inf)          # True
+    >>> float(inf)
+    float('inf')
+    >>> float(-inf)
+    float('-inf')
+    >>> str(inf)
+    'inf'
+    >>> str(-inf)
+    '-inf'
+    >>> bool(inf)
+    True
+    >>> bool(-inf)
+    True
 
 
 .. |Build Status| image:: https://travis-ci.org/kvesteri/infinity.png?branch=master
