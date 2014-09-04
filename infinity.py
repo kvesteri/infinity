@@ -31,7 +31,6 @@ class Infinity(object):
             not self.positive and other == float('-inf')
         )
 
-
     def __ne__(self, other):
         return not (self == other)
 
