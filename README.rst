@@ -13,10 +13,16 @@ Why?
 
 * Writing ``float('inf')`` is clumsy compared to just ``inf``
 
-* ``pow(1, float('inf'))`` returns 1 whereas it should be undefined (see why: http://math.stackexchange.com/questions/319764/1-to-the-power-of-infinity-why-is-it-indeterminate). In infinity this operation returns ``TypeError``.
+* ``pow(1, float('inf'))`` returns 1 whereas `it should be undefined`_. In infinity this operation returns ``TypeError``.
 
-* http://stackoverflow.com/questions/382603/when-would-you-use-infinity
+* `When would you use Infinity`_?
 
+.. _it should be undefined:
+   http://math.stackexchange.com/questions/319764
+   /1-to-the-power-of-infinity-why-is-it-indeterminate
+
+.. _When would you use Infinity:
+   http://stackoverflow.com/questions/382603/when-would-you-use-infinity
 
 Installation
 ------------
