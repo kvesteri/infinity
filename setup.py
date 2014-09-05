@@ -5,10 +5,21 @@ infinity
 All-in-one infinity value for Python. Can be compared to any object.
 """
 from setuptools import setup, find_packages
+import os
+import re
 import sys
 
 
+HERE = os.path.dirname(os.path.abspath(__file__))
 PY3 = sys.version_info[0] == 3
+
+
+def get_version():
+    filename = os.path.join(HERE, 'infinity.py')
+    with open(filename) as f:
+        contents = f.read()
+    pattern = r"^__version__ = '(.*?)'$"
+    return re.search(pattern, contents, re.MULTILINE).group(1)
 
 
 extras_require = {
@@ -22,7 +33,7 @@ extras_require = {
 
 setup(
     name='infinity',
-    version='1.3',
+    version=get_version(),
     url='https://github.com/kvesteri/infinity',
     license='BSD',
     author='Konsta Vesterinen',
