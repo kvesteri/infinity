@@ -11,7 +11,8 @@ class InfinityTestCase(object):
     def test_boolean_coercion(self):
         assert bool(self.value) is True
 
-    @pytest.mark.parametrize(('arg', 'op'),
+    @pytest.mark.parametrize(
+        ('arg', 'op'),
         (
             (inf, operator.truediv),
             (0, operator.pow),
@@ -22,7 +23,8 @@ class InfinityTestCase(object):
         with pytest.raises(TypeError):
             op(self.value, arg)
 
-    @pytest.mark.parametrize(('arg', 'op'),
+    @pytest.mark.parametrize(
+        ('arg', 'op'),
         (
             (1, operator.pow),
             (-1, operator.pow),
@@ -33,7 +35,8 @@ class InfinityTestCase(object):
         with pytest.raises(TypeError):
             op(arg, self.value)
 
-    @pytest.mark.parametrize('arg',
+    @pytest.mark.parametrize(
+        'arg',
         (
             2,
             -3,
@@ -147,7 +150,8 @@ class TestInfinity(InfinityTestCase):
         assert inf == Infinity()
         assert not (inf != Infinity())
 
-    @pytest.mark.parametrize(('value1', 'value2', 'result'),
+    @pytest.mark.parametrize(
+        ('value1', 'value2', 'result'),
         (
             (inf, inf, inf),
             (inf, 3, inf),
@@ -159,7 +163,8 @@ class TestInfinity(InfinityTestCase):
     def test_add_operator(self, value1, value2, result):
         assert value1 + value2 == result
 
-    @pytest.mark.parametrize(('value1', 'value2', 'result'),
+    @pytest.mark.parametrize(
+        ('value1', 'value2', 'result'),
         (
             (-inf, inf, -inf),
             (inf, 3, inf),
