@@ -9,14 +9,23 @@ All-in-one infinity value for Python. Can be compared to any object.
 Why?
 ----
 
-* Python has `float('inf')` and `float('-inf')`. However these simply represent floating point infinity values. I wanted to create a class which can be compared to any comparable object.
+* Python has ``float('inf')`` and ``float('-inf')``. However these simply
+  represent floating point infinity values. I wanted to create a class which can
+  be compared to any comparable object.
 
-* Writing `float('inf')` is clumsy compared to just `inf`
+* Writing ``float('inf')`` is clumsy compared to just ``inf``
 
-* `pow(1, float('inf'))` returns 1 whereas it should be undefined (see why: http://math.stackexchange.com/questions/319764/1-to-the-power-of-infinity-why-is-it-indeterminate). In infinity this operation returns TypeError.
+* ``pow(1, float('inf'))`` returns 1 whereas `it should be undefined`_. In
+  infinity this operation returns ``TypeError``.
 
-* http://stackoverflow.com/questions/382603/when-would-you-use-infinity
+* `When would you use Infinity`_?
 
+.. _it should be undefined:
+   http://math.stackexchange.com/questions/319764
+   /1-to-the-power-of-infinity-why-is-it-indeterminate
+
+.. _When would you use Infinity:
+   http://stackoverflow.com/questions/382603/when-would-you-use-infinity
 
 Installation
 ------------
@@ -40,19 +49,24 @@ Supported python versions:
 Object comparison
 -----------------
 
-The `Infinity` class supports rich comparison methods:
+The ``Infinity`` class supports rich comparison methods:
 
 
 .. code-block:: python
 
-    from infinity import inf
-    import sys
+    >>> from datetime import datetime
+    >>> from infinity import inf
 
-    3 < inf                     # True
-    datetime(2000, 2, 2) < inf  # True
-    -inf < inf                  # True
-    inf == inf                  # True
-    -inf == -inf                # True
+    >>> 3 < inf
+    True
+    >>> datetime(2000, 2, 2) < inf
+    True
+    >>> -inf < inf
+    True
+    >> inf == inf
+    True
+    >>> -inf == -inf
+    True
 
 
 Arithmetic operators
@@ -63,27 +77,57 @@ It also supports arithmetic operators:
 
 .. code-block:: python
 
-    inf + inf                   # inf
-    -inf - inf                  # -inf
+    >>> inf + inf
+    inf
+    >>> -inf - inf
+    -inf
 
-    inf + 3                     # inf
-    inf + datetime(2000, 2, 2)  # inf
+    >>> inf + 3
+    inf
+    >>> inf + datetime(2000, 2, 2)
+    inf
 
-    5 / inf                     # 0.0
-    3 / -inf                    # -0.0
+    >>> 5 / inf
+    0.0
+    >>> 3 / -inf
+    -0.0
 
-    pow(inf, 0.5)               # inf
+    >>> pow(inf, 0.5)
+    inf
 
-The following operations raise `TypeError` exceptions:
+The following operations raise ``TypeError`` exceptions:
 
 .. code-block:: python
 
-    inf - inf
-    -inf + inf
-    inf / inf
-    inf * 0
-    pow(inf, 0)
-    pow(1, inf)
+    >>> inf - inf
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for -: 'Infinity' and 'Infinity'
+
+    >>> -inf + inf
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for +: 'Infinity' and 'Infinity'
+
+    >>> inf / inf
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for /: 'Infinity' and 'Infinity'
+
+    >>> inf * 0
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for *: 'Infinity' and 'int'
+
+    >>> pow(inf, 0)
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for ** or pow(): 'Infinity' and 'int'
+
+    >>> pow(1, inf)
+    Traceback (most recent call last):
+        ...
+    TypeError: unsupported operand type(s) for ** or pow(): 'int' and 'Infinity'
 
 
 Type coercion
@@ -94,12 +138,18 @@ Infinity objects can be coerced to various types:
 
 .. code-block:: python
 
-    float(inf)          # float('inf')
-    float(-inf)         # float('-inf')
-    str(inf)            # 'inf'
-    str(-inf)           # '-inf'
-    bool(inf)           # True
-    bool(-inf)          # True
+    >>> float(inf)
+    float('inf')
+    >>> float(-inf)
+    float('-inf')
+    >>> str(inf)
+    'inf'
+    >>> str(-inf)
+    '-inf'
+    >>> bool(inf)
+    True
+    >>> bool(-inf)
+    True
 
 
 .. |Build Status| image:: https://travis-ci.org/kvesteri/infinity.png?branch=master
