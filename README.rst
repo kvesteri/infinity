@@ -54,6 +54,7 @@ The ``Infinity`` class supports rich comparison methods:
 
 .. code-block:: python
 
+    >>> import sys
     >>> from datetime import datetime
     >>> from infinity import inf
 
@@ -63,7 +64,7 @@ The ``Infinity`` class supports rich comparison methods:
     True
     >>> -inf < inf
     True
-    >> inf == inf
+    >>> inf == inf
     True
     >>> -inf == -inf
     True
@@ -88,10 +89,9 @@ It also supports arithmetic operators:
     inf
 
     >>> 5 / inf
-    0.0
+    0
     >>> 3 / -inf
-    -0.0
-
+    0
     >>> pow(inf, 0.5)
     inf
 
@@ -138,10 +138,10 @@ Infinity objects can be coerced to various types:
 
 .. code-block:: python
 
-    >>> float(inf)
-    float('inf')
-    >>> float(-inf)
-    float('-inf')
+    >>> float(inf) == float('inf')
+    True
+    >>> float(-inf) == float('-inf')
+    True
     >>> str(inf)
     'inf'
     >>> str(-inf)
