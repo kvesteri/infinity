@@ -9,4 +9,4 @@ python:
 install:
   - pip install -e ".[test]"
 script:
-  - py.test --doctest-glob='*.rst' IGNORE_EXCEPTION_DETAIL
+  - py.test --doctest-glob='*.rst'
