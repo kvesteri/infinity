@@ -5,7 +5,8 @@ python:
   - 3.3
   - 3.4
   - pypy
+  - pypy3
 install:
   - pip install -e ".[test]"
 script:
-  - py.test --doctest-glob='*.rst'
+  - py.test --doctest-glob='*.rst' IGNORE_EXCEPTION_DETAIL
