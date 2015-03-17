@@ -109,7 +109,7 @@ The following operations raise ``TypeError`` exceptions:
         ...
     TypeError: unsupported operand type(s) for +: 'Infinity' and 'Infinity'
 
-    >>> inf / inf
+    >>> inf / inf  # doctest: +IGNORE_EXCEPTION_DETAIL
     Traceback (most recent call last):
         ...
     TypeError: unsupported operand type(s) for /: 'Infinity' and 'Infinity'
@@ -119,12 +119,12 @@ The following operations raise ``TypeError`` exceptions:
         ...
     TypeError: unsupported operand type(s) for *: 'Infinity' and 'int'
 
-    >>> pow(inf, 0)
+    >>> pow(inf, 0)  # doctest: +IGNORE_EXCEPTION_DETAIL
     Traceback (most recent call last):
         ...
     TypeError: unsupported operand type(s) for ** or pow(): 'Infinity' and 'int'
 
-    >>> pow(1, inf)
+    >>> pow(1, inf)  # doctest: +IGNORE_EXCEPTION_DETAIL
     Traceback (most recent call last):
         ...
     TypeError: unsupported operand type(s) for ** or pow(): 'int' and 'Infinity'
