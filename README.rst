@@ -155,7 +155,7 @@ Infinity objects can be coerced to various types:
 
 .. |Build Status| image:: https://travis-ci.org/kvesteri/infinity.png?branch=master
    :target: https://travis-ci.org/kvesteri/infinity
-.. |Version Status| image:: https://pypip.in/v/infinity/badge.png
-   :target: https://crate.io/packages/infinity/
-.. |Downloads| image:: https://pypip.in/d/infinity/badge.png
-   :target: https://crate.io/packages/infinity/
+.. |Version Status| image:: https://img.shields.io/pypi/v/infinity.svg
+   :target: https://pypi.python.org/pypi/infinity/
+.. |Downloads| image:: https://img.shields.io/pypi/dm/infinity.svg
+   :target: https://pypi.python.org/pypi/infinity/
