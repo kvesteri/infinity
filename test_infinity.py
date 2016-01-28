@@ -1,7 +1,9 @@
-from datetime import datetime
 import operator
+from datetime import datetime
+
 import pytest
 import six
+
 from infinity import inf, Infinity
 
 

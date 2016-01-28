@@ -12,4 +12,6 @@ python:
 install:
   - pip install -e ".[test]"
 script:
+  - isort --recursive --diff infinity.py test_infinity.py && isort --recursive --check-only infinity.py test_infinity.py
+  - flake8 infinity.py test_infinity.py
   - py.test --doctest-glob='*.rst'
