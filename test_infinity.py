@@ -194,3 +194,9 @@ class TestInfinity(InfinityTestCase):
 
     def test_repr(self):
         assert repr(inf) == 'inf'
+
+    def test_hashable(self):
+        assert isinstance(inf.__hash__(), int)
+        assert Infinity().__hash__() == Infinity().__hash__()
+        # check against 10 other objects so random hash collisions are unlikely
+        assert not all(inf.__hash__() == x.__hash__() for x in range(0, 10))
