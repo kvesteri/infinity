@@ -115,6 +115,9 @@ class Infinity(object):
         else:
             return Infinity()
 
+    def __hash__(self):
+        return (self.__class__, self.positive).__hash__()
+
 
 inf = Infinity()
 
