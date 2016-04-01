@@ -4,6 +4,12 @@ Changelog
 Here you can see the full list of changes between each infinity release.
 
 
+1.4 (2016-04-01)
+----------------
+
+- Added __hash__ method
+
+
 1.3 (2014-01-10)
 ----------------
 
