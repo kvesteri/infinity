@@ -4,6 +4,12 @@ Changelog
 Here you can see the full list of changes between each infinity release.
 
 
+1.5 (2020-06-03)
+----------------
+
+- Removed py27, py33 support
+
+
 1.4 (2016-04-01)
 ----------------
 

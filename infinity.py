@@ -1,11 +1,6 @@
-try:
-    from functools import total_ordering
-except ImportError:
-    # Use Python 2.6 port
-    from total_ordering import total_ordering
+from functools import total_ordering
 
-
-__version__ = '1.4'
+__version__ = '1.5'
 
 
 @total_ordering
@@ -91,7 +86,7 @@ class Infinity(object):
     __rfloordiv__ = __rdiv__
 
     def __mul__(self, other):
-        if other is 0:
+        if other == 0:
             return NotImplemented
         return Infinity(
             other > 0 and self.positive or other < 0 and not self.positive
@@ -100,7 +95,7 @@ class Infinity(object):
     __rmul__ = __mul__
 
     def __pow__(self, other):
-        if other is 0:
+        if other == 0:
             return NotImplemented
         elif other == -self:
             return -0.0 if not self.positive else 0.0
